@@ -4,18 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Platillo;
+use App\Models\Categoria;
 
 
 class PlatilloController extends Controller
 {
     public function ejemplo() {
+        $platillo = Platillo::with('ingredientes')->get();
+        dd($platillo->dd());
         
-        $nombre = 'Juan Pablo'; 
-        $numeros = [22,54,66,12,34,54];
-        $peliculas = ['peli1', 'peli2', 'peli3', 'peli4'];
-
-
-        return view('ejemplo', compact('nombre', 'numeros', 'peliculas'));
     }
 
     public function consultarPlatillos(){
